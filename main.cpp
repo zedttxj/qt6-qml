@@ -11,9 +11,10 @@ int main(int argc, char *argv[]) {
   engine.rootContext()->setContextProperty("counterController",
                                            &counterController);
 
+  // Load once and check for success
   engine.load(QUrl(QStringLiteral("main.qml")));
   if (engine.rootObjects().isEmpty())
     return -1;
 
-  return app.exec();
+  return app.exec(); // Starts the event loop cleanly
 }
